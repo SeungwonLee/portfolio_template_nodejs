@@ -8,6 +8,7 @@ app.engine('html', require('ejs').renderFile)
 
 app.use(express.static(__dirname + '/views'));
 
-app.listen(3000, function(){
-    console.log('Example app listening on port 3000!');
-})
+var port = process.env.PORT || 3000; 
+app.listen(port, function(){
+  console.log('server on! http://localhost:'+port);
+});
