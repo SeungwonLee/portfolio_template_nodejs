@@ -1,6 +1,21 @@
+require('dotenv').config();
+
 var express = require('express');
 var app = express();
 var router = require('./router/main')(app);
+var mongoose = require('mongoose');
+
+// DB setting
+mongoose.connect(process.env.DATABASE, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+}).then(() => {
+  console.log('Connected to Mongo!');
+}).catch((err) => {
+  console.error('Error connecting to Mongo', err);
+});
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views')
