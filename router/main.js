@@ -5,13 +5,18 @@ var mongoose = require('mongoose');
 // TODO 잘됨 
 var asyncfunction = function (param) {
   return new Promise(function (resolved, rejected) {
-    if (true) {
-      resolved("결과");
-    } else {
-      rejected(Error(err));
-    }
+    Experience.find(function (err, books) {
+      if (err) return res.status(500).send({ error: 'database failure' });
+      console.log(books);
+
+      if (true) {
+        resolved("결과");
+      } else {
+        rejected(Error(err));
+      }
+    });
   });
-}
+};
 
 module.exports = function (app) {
   // app.post('/m', function (req, res) {
@@ -28,28 +33,20 @@ module.exports = function (app) {
   // });
 
   app.get('/', function (req, res) {
-    Experience.find(function (err, books) {
-      if (err) return res.status(500).send({ error: 'database failure' });
-      console.log(books);
-      var promise = asyncfunction(' terry ');
-      promise.then(console.log, console.err); // 여기가 비동기 결과에 대한 콜백함
-      // var result = async () => {
-      //   var result2 = await Experience.find({});
-      //   console.log(result2);
-      //   return result2
-      // };
-      // console.log(result);
+    var promise = asyncfunction(' terry ');
+    promise.then(function (res) {
       res.render('index.html');
-    })
-
-    // var result = async () => {
-    //   var result2 = await Experience.find({});
-    //   console.log(result2);
-    //   return result2
-    // };
-    // console.log(result);
-    // book.published_date = new Date(req.body.published_date);
-
-
+    }, function (res) { console.err }); // 여기가 비동기 결과에 대한 콜백함
   });
-}
+
+  // var result = async () => {
+  //   var result2 = await Experience.find({});
+  //   console.log(result2);
+  //   return result2
+  // };
+  // console.log(result);
+  // book.published_date = new Date(req.body.published_date);
+
+
+};
+
