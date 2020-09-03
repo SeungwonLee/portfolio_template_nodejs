@@ -6,6 +6,7 @@ var router = require('./router/main')(app);
 var mongoose = require('mongoose');
 
 // DB setting
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

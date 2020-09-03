@@ -1,22 +1,5 @@
 var Promise = require('promise');
-const Experience = require("../model/experience");
-var mongoose = require('mongoose');
-
-// TODO 잘됨 
-var asyncfunction = function (param) {
-  return new Promise(function (resolved, rejected) {
-    Experience.find(function (err, books) {
-      if (err) return res.status(500).send({ error: 'database failure' });
-      console.log(books);
-
-      if (true) {
-        resolved("결과");
-      } else {
-        rejected(Error(err));
-      }
-    });
-  });
-};
+var useCases = require("../model/useCases");
 
 module.exports = function (app) {
   // app.post('/m', function (req, res) {
@@ -33,20 +16,16 @@ module.exports = function (app) {
   // });
 
   app.get('/', function (req, res) {
-    var promise = asyncfunction(' terry ');
-    promise.then(function (res) {
+    useCases.findExperiences().then(function (ss) {
+      // console.log(ss);
       res.render('index.html');
-    }, function (res) { console.err }); // 여기가 비동기 결과에 대한 콜백함
+    }, function (err) { console.log(err); }); // 여기가 비동기 결과에 대한 콜백함
+
+
+    // var promise = useCases.experiences("test");
+    // promise.then(function (ss) {
+    //   res.render('index.html');
+    // }, function (err) { console.err }); // 여기가 비동기 결과에 대한 콜백함
   });
-
-  // var result = async () => {
-  //   var result2 = await Experience.find({});
-  //   console.log(result2);
-  //   return result2
-  // };
-  // console.log(result);
-  // book.published_date = new Date(req.body.published_date);
-
-
 };
 
