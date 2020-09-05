@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('./header/view') %> 
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <%- include('./partials/navigation') %> 
-        <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
-            <%- include('./partials/about') %> 
-            <hr class="m-0" />
-            <!-- Experience-->
-            <%- include('./partials/experience') %> 
-            <hr class="m-0" />
-            <!-- Education-->
-            <%- include('./partials/education') %> 
-            <hr class="m-0" />
-            <!-- Skills-->
-            <%- include('./partials/skills') %> 
-            <hr class="m-0" />
-            <!-- Interests-->
-            <%- include('./partials/interests') %> 
-            <hr class="m-0" />
-            <!-- Awards-->
-            <%- include('./partials/awards') %>
-        </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+
+<head>
+  <%- include('./header/view') %>
+</head>
+
+<body id="page-top">
+  <%= title %>
+  <!-- Navigation-->
+  <%- include('./partials/navigation') %>
+  <!-- Page Content-->
+  <div class="container-fluid p-0">
+    <!-- About-->
+    <%- include('./partials/about') %>
+    <hr class="m-0" />
+    <!-- Experience-->
+    <%- include('./partials/experience') %>
+    <hr class="m-0" />
+    <!-- Education-->
+    <%- include('./partials/education') %>
+    <hr class="m-0" />
+    <!-- Skills-->
+    <%- include('./partials/skills') %>
+    <hr class="m-0" />
+    <!-- Interests-->
+    <%- include('./partials/interests') %>
+    <hr class="m-0" />
+    <!-- Awards-->
+    <%- include('./partials/awards') %>
+  </div>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <!-- Third party plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+</body>
+
 </html>

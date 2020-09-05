@@ -18,7 +18,7 @@ module.exports = function (app) {
   app.get('/', function (req, res) {
     useCases.findExperiences().then(function (ss) {
       // console.log(ss);
-      res.render('index.html');
+      res.render('index.html', { title: "Title" });
     }, function (err) { console.log(err); }); // 여기가 비동기 결과에 대한 콜백함
 
 
